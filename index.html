@@ -62,7 +62,9 @@
     }
 
     .hero img {
-      width: 240px;
+      width: 60%;
+      max-width: 1000px;
+      min-width: 320px;
       height: auto;
     }
 
@@ -77,6 +79,45 @@
       background: rgba(0,0,0,0.08);
       margin: 0 auto;
       max-width: 600px;
+    }
+
+    /* FEATURES + IMAGE */
+    .features-layout {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .features-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .features-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* 50 % suurempi kuin aiemmin */
+    .features-image img {
+      width: 100%;
+      max-width: 570px; /* oli ~380px → +50 % */
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .features-layout {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .features-image img {
+        width: 100%;
+        max-width: 570px;
+	height: auto;
+      }
     }
 
     /* LISTS */
@@ -124,6 +165,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -144,45 +186,36 @@
   <section>
     <div class="container">
       <h2>Mikä on TaseOn?</h2>
-
       <p>
         TaseOn on matkalaskusovellus, joka tekee matkalaskujen laatimisesta nopeaa ja vaivatonta suoraan puhelimella.
         Sovellus on suunniteltu erityisesti pienyrityksille, toiminimille, freelancereille ja yksityishenkilöille,
         jotka haluavat hoitaa matkalaskunsa selkeästi ilman turhaa monimutkaisuutta.
-      </p>
-
-      <p>
-        TaseOnissa matkalasku syntyy vaihe vaiheelta: käyttäjä syöttää matkan tiedot, lisää tarvittaessa kulut
-        ja liittää mukaan tositteet. Kuitit ja muut tositteet voi tallentaa helposti kuvaamalla ne puhelimen
-        kameralla, jolloin ne pysyvät tallessa ja järjestyksessä matkalaskun yhteydessä.
-      </p>
-
-      <p>
-        Sovelluksella voi luoda valmiita matkalaskuraportteja, jotka on helppo lähettää kirjanpitäjälle tai
-        tallentaa omalle laitteelle arkistointia varten.
-      </p>
-
-      <p>
-        TaseOn keskittyy olennaiseen. Sovellus ei käytä GPS-seurantaa, vaan kaikki tiedot lisätään käyttäjän
-        toimesta, mikä antaa täyden hallinnan omiin tietoihin.
       </p>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section>
-    <div class="container">
-      <h2>Mitä TaseOnilla voi tehdä?</h2>
-      <ul>
-        <li>Luo matkalaskut helposti suoraan puhelimella</li>
-        <li>Lisää matkakulut ja muut kulut selkeästi</li>
-        <li>Kuvaa ja liitä tositteet matkalaskun yhteyteen</li>
-        <li>Kirjaa matkat omalla autolla tai julkisilla kulkuvälineillä</li>
-        <li>Luo valmiita raportteja</li>
-        <li>Lähetä raportti kirjanpitäjälle tai tallenna omaan arkistoon</li>
-        <li>Hallitse kaikki matkalaskut yhdessä paikassa</li>
-      </ul>
-      <p><strong>Sovellus ei käytä GPS-seurantaa.</strong></p>
+    <div class="container features-layout">
+
+      <div class="features-text">
+        <h2>Mitä TaseOnilla voi tehdä?</h2>
+        <ul>
+          <li>Luo matkalaskut helposti suoraan puhelimella</li>
+          <li>Lisää matkakulut ja muut kulut selkeästi</li>
+          <li>Kuvaa ja liitä tositteet matkalaskun yhteyteen</li>
+          <li>Kirjaa matkat omalla autolla tai julkisilla kulkuvälineillä</li>
+          <li>Luo valmiita raportteja</li>
+          <li>Lähetä raportti kirjanpitäjälle tai tallenna omaan arkistoon</li>
+          <li>Hallitse kaikki matkalaskut yhdessä paikassa</li>
+        </ul>
+        <p><strong>Sovellus ei käytä GPS-seurantaa.</strong></p>
+      </div>
+
+      <div class="features-image">
+        <img src="Luuri.svg" alt="TaseOn-sovelluksen näkymä" />
+      </div>
+
     </div>
   </section>
 
@@ -211,7 +244,7 @@
     </div>
   </section>
 
-<!-- FULL PRIVACY -->
+  <!-- FULL PRIVACY -->
 <section class="privacy-full" id="tietoseloste">
 <div class="container">
 <h2>Tietosuojaseloste</h2>
@@ -343,3 +376,4 @@ Sähköposti: info@taseon.fi
 
 </body>
 </html>
+
