@@ -27,29 +27,45 @@
       line-height: 1.6;
     }
 
-    section { padding: 64px 20px; }
+    section {
+      padding: 64px 20px;
+    }
 
-    .container { max-width: 900px; margin: 0 auto; }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-    h1, h2 { margin-top: 0; }
-    h1 { font-size: 2.6rem; }
-    h2 { font-size: 2rem; margin-bottom: 24px; }
+    h1, h2 {
+      margin-top: 0;
+    }
 
-    p { color: var(--text-muted); }
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
 
     .hero {
       text-align: center;
-      padding-top: 80px;
-      padding-bottom: 80px;
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
 
     .hero img.logo {
-      width: 200px;
+      width: 180px;
       margin-bottom: 20px;
     }
 
     .cta {
-      margin-top: 30px;
+      margin-top: 25px;
     }
 
     .cta a {
@@ -73,13 +89,39 @@
       max-width: 600px;
     }
 
-    ul { padding-left: 20px; }
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
     footer {
       text-align: center;
       padding: 32px 20px;
       font-size: 0.9rem;
       color: #777;
+    }
+
+    /* Mobile tweak */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 40px 16px;
+      }
     }
   </style>
 </head>
@@ -98,14 +140,14 @@
     </p>
 
     <div class="cta">
-      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank">
+      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank" rel="noopener noreferrer">
         Kokeile ilmaiseksi Play Kaupasta
       </a>
     </div>
 
     <div style="margin-top:16px;">
-      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank">
-        <img src="google-play-badge.png" style="height:60px;">
+      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank" rel="noopener noreferrer">
+        <img src="google-play-badge.png" alt="Lataa Google Playsta" style="height:60px;">
       </a>
     </div>
 
@@ -166,6 +208,8 @@
 
     <p><strong>Siirry koko tietosuojaselosteeseen ↓</strong></p>
 
+    <!-- Tästä eteenpäin EI MUUTETTU sisältöä -->
+    
     <h2>Tietosuojaseloste</h2>
     <p>Viimeksi päivitetty: 18.12.2025</p>
 
