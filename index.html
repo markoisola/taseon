@@ -69,6 +69,10 @@
       display: inline-block;
     }
 
+    a {
+      color: inherit;
+    }
+
     footer {
       padding: 40px 20px;
       font-size: 0.9rem;
@@ -88,14 +92,16 @@
 
     <p>Kirjaa ajot helposti ja näe korvaukset suoraan ilman laskemista.</p>
 
-    <!-- 🔥 AINOA CTA -->
+    <p><strong>Lataa Play kaupasta</strong></p>
+
+    <!-- AINOA CTA -->
     <div class="badge">
-      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank">
+      <a href="https://play.google.com/store/apps/details?id=com.anonymous.mobiilikirjanpito&hl=fi" target="_blank" rel="noopener noreferrer">
         <img src="GetItOnGooglePlay_Badge_Web_color_Finnish.png" alt="Google Play">
       </a>
     </div>
 
-    <!-- 🔥 LUURI -->
+    <!-- PUHELIN -->
     <div class="phone">
       <img src="Luuri.svg" alt="Sovellus">
     </div>
@@ -165,9 +171,9 @@
       Kaikki sovellukseen tallennetut tiedot ovat käyttäjän omia. Tietoja ei käytetä markkinointiin ja ne voi poistaa milloin tahansa.
     </p>
 
-    <p>Siirry koko tietosuojaselosteeseen ↓</p>
+    <p><a href="#tietosuojaseloste"><strong>Siirry koko tietosuojaselosteeseen ↓</strong></a></p>
 
-    <h2>Tietosuojaseloste</h2>
+    <h2 id="tietosuojaseloste">Tietosuojaseloste</h2>
     <p>Viimeksi päivitetty: 18.12.2025</p>
 
     <p>Tämä tietosuojaseloste koskee TaseOn-matkalaskusovellusta.</p>
@@ -198,40 +204,56 @@
     <p>Tietojen käsittelyn oikeusperuste on käyttäjän suostumus sekä sovelluksen käyttötarkoitus talous- ja matkalaskutietojen hallinnassa.</p>
 
     <p><strong>4. Tietojen säilytys</strong><br>
-    Käyttäjän lisäämät tiedot tallennetaan suojattuun pilvipohjaiseen tietokantaan (Supabase).</p>
+    Käyttäjän lisäämät tiedot tallennetaan suojattuun pilvipohjaiseen tietokantaan (Supabase), jota käytetään sovelluksen toiminnan mahdollistamiseksi.</p>
 
     <p>Tiedot säilyvät sovelluksessa niin kauan kuin käyttäjän tili on olemassa.</p>
 
-    <p><strong>5. Tietojen poistaminen</strong><br>
-    Käyttäjä voi milloin tahansa poistaa tietonsa tai tilinsä.</p>
+    <p><strong>5. Tietojen poistaminen ja säilytysajan päättyminen</strong><br>
+    Käyttäjä voi milloin tahansa:</p>
 
-    <p><strong>6. Kirjanpitolaki</strong><br>
-    Vastuu tietojen säilyttämisestä on käyttäjällä.</p>
-
-    <p><strong>7. Tietojen jakaminen</strong><br>
-    Ei luovuteta kolmansille.</p>
-
-    <p><strong>8. Analytiikka</strong><br>
-    Voi sisältää anonyymiä analytiikkaa.</p>
-
-    <p><strong>9. Tietoturva</strong><br>
-    Supabase huolehtii teknisestä suojauksesta.</p>
-
-    <p><strong>10. Käyttäjän vastuu</strong></p>
     <ul>
-      <li>tietojen oikeellisuus</li>
-      <li>säilytys</li>
-      <li>varmuuskopiointi</li>
+      <li>poistaa yksittäisiä tietoja</li>
+      <li>poistaa tilinsä lopullisesti</li>
     </ul>
 
-    <p><strong>11. Kohderyhmä</strong><br>
-    Täysi-ikäiset käyttäjät.</p>
+    <p>Tilin lopullisen poiston yhteydessä kaikki käyttäjän tiedot poistetaan pysyvästi, eikä niitä voida palauttaa. Tämä koskee kaikkia sovellukseen tallennettuja tietoja, mukaan lukien matkalaskut ja tositteet.</p>
 
-    <p><strong>12. Muutokset</strong><br>
-    Selostetta voidaan päivittää.</p>
+    <p>Ennen tilin poistamista käyttäjällä on mahdollisuus hakea ja tallentaa kaikki tietonsa omalle laitteelleen.</p>
+
+    <p><strong>6. Kirjanpitolain huomioiminen</strong><br>
+    Kirjanpitolainsäädäntö edellyttää, että kirjanpitoon ja tositteisiin liittyviä tietoja säilytetään vähintään kuusi (6) vuotta.</p>
+
+    <p>TaseOn tarjoaa käyttäjälle teknisen mahdollisuuden tietojen hallintaan ja tallentamiseen, mutta vastuu lakisääteisestä säilyttämisestä on käyttäjällä. Jos käyttäjä poistaa tilinsä, sovellus ei säilytä tietoja kirjanpitolain edellyttämää aikaa käyttäjän puolesta.</p>
+
+    <p><strong>7. Tietojen jakaminen</strong><br>
+    Sovellus ei luovuta käyttäjätietoja kolmansille osapuolille, lukuun ottamatta teknisiä palveluntarjoajia, joita käytetään sovelluksen toiminnan mahdollistamiseen (esimerkiksi Supabase).</p>
+
+    <p>Tietoja ei käytetä markkinointiin eikä mainontaan.</p>
+
+    <p><strong>8. Analytiikka</strong><br>
+    Sovelluksessa saatetaan käyttää anonyymiä käyttöanalytiikkaa sovelluksen toiminnan ja käyttökokemuksen kehittämiseksi. Analytiikka ei sisällä henkilötietoja eikä mahdollista yksittäisen käyttäjän tunnistamista.</p>
+
+    <p><strong>9. Tietoturva</strong><br>
+    Tietojen käsittelyssä ja säilytyksessä noudatetaan asianmukaisia teknisiä ja organisatorisia turvatoimia. Supabase vastaa tietojen teknisestä suojaamisesta alan yleisten tietoturvakäytäntöjen mukaisesti.</p>
+
+    <p><strong>10. Käyttäjän vastuu</strong><br>
+    Käyttäjä vastaa itse:</p>
+
+    <ul>
+      <li>sovellukseen tallentamiensa tietojen oikeellisuudesta</li>
+      <li>tietojen tallettamisesta ja säilyttämisestä lakisääteisten velvoitteiden täyttämiseksi</li>
+      <li>tietojen varmuuskopioinnista ennen tilin poistamista</li>
+    </ul>
+
+    <p><strong>11. Sovelluksen kohderyhmä</strong><br>
+    TaseOn on tarkoitettu täysi-ikäisille käyttäjille talous- ja matkalaskukäyttöön. Sovellusta ei ole suunnattu lapsille.</p>
+
+    <p><strong>12. Muutokset tietosuojaselosteeseen</strong><br>
+    Tietosuojaselostetta voidaan päivittää. Ajantasainen versio on aina saatavilla sovelluksessa tai sen jakelusivulla.</p>
 
     <p><strong>13. Yhteystiedot</strong><br>
-    info@taseon.fi</p>
+    Tietosuojaan liittyvissä kysymyksissä voit ottaa yhteyttä:<br>
+    Sähköposti: info@taseon.fi</p>
 
   </div>
 </section>
