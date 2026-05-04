@@ -235,6 +235,88 @@
       box-shadow: 0 10px 24px rgba(14, 165, 164, 0.24);
     }
 
+
+    .gradient-card {
+      background: linear-gradient(160deg, #ffffff 0%, #f3fbff 45%, #eefaf5 100%);
+    }
+
+    .carousel-wrap {
+      margin-top: 14px;
+      border-radius: 18px;
+      border: 1px solid #d8e7f2;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f9fd 100%);
+      padding: 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #0f172a;
+      aspect-ratio: 9 / 19.5;
+      max-height: 640px;
+      margin: 0 auto;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      margin: 0;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .carousel-btn {
+      border: 1px solid #c5d8e8;
+      background: #fff;
+      color: #0f172a;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background: #b7c9d7;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dot.active {
+      width: 22px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
     footer {
       text-align: center;
       padding: 14px 16px 36px;
@@ -282,7 +364,7 @@
       </div>
     </section>
 
-    <section class="info">
+    <section class="info gradient-card">
       <div class="container">
         <h2>Mikä on TaseOn?</h2>
         <p>
@@ -291,7 +373,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gradient-card">
       <div class="container">
         <h2>Mitä TaseOnilla voi tehdä?</h2>
         <ul>
@@ -308,7 +390,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gradient-card">
       <div class="container">
         <h2>Kenelle TaseOn sopii?</h2>
         <p>
@@ -317,7 +399,31 @@
       </div>
     </section>
 
-    <section>
+    <section class="gradient-card">
+      <div class="container">
+        <h2>Sovelluksen näkymiä</h2>
+        <div class="carousel-wrap">
+          <div class="carousel" id="carousel">
+            <div class="slides" id="slides">
+              <figure class="slide"><img src="screenshot1.png" alt="TaseOn näkymä 1"></figure>
+              <figure class="slide"><img src="screenshot2.png" alt="TaseOn näkymä 2"></figure>
+              <figure class="slide"><img src="screenshot3.png" alt="TaseOn näkymä 3"></figure>
+              <figure class="slide"><img src="screenshot4.png" alt="TaseOn näkymä 4"></figure>
+              <figure class="slide"><img src="screenshot5.png" alt="TaseOn näkymä 5"></figure>
+              <figure class="slide"><img src="screenshot6.png" alt="TaseOn näkymä 6"></figure>
+              <figure class="slide"><img src="screenshot7.png" alt="TaseOn näkymä 7"></figure>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-btn" id="prevBtn" aria-label="Edellinen kuva">← Edellinen</button>
+            <button class="carousel-btn" id="nextBtn" aria-label="Seuraava kuva">Seuraava →</button>
+          </div>
+          <div class="dots" id="dots" aria-label="Karusellin sivutus"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gradient-card">
       <div class="container">
         <h2>Hinnoittelu</h2>
 
@@ -336,7 +442,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="gradient-card">
       <div class="container">
         <h2>Tietosuoja</h2>
 
@@ -435,6 +541,53 @@
   <footer>
     © 2025 Marko Isola / TaseOn
   </footer>
+
+  <script>
+    (function () {
+      const slides = document.getElementById('slides');
+      if (!slides) return;
+      const slideCount = slides.children.length;
+      const dotsEl = document.getElementById('dots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let index = 0;
+      let timer;
+
+      function renderDots() {
+        for (let i = 0; i < slideCount; i += 1) {
+          const dot = document.createElement('button');
+          dot.className = 'dot';
+          dot.setAttribute('aria-label', `Näytä kuva ${i + 1}`);
+          dot.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(dot);
+        }
+      }
+
+      function update() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        [...dotsEl.children].forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function goTo(i) {
+        index = (i + slideCount) % slideCount;
+        update();
+        restartAuto();
+      }
+
+      function restartAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(index + 1), 4500);
+      }
+
+      prevBtn.addEventListener('click', () => goTo(index - 1));
+      nextBtn.addEventListener('click', () => goTo(index + 1));
+      renderDots();
+      update();
+      restartAuto();
+    })();
+  </script>
 
 </body>
 </html>
