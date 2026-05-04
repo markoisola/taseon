@@ -21,6 +21,7 @@
       --primary-dark: #0b8584;
       --accent: #06b6d4;
       --shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.05);
       --radius-lg: 22px;
       --radius-md: 14px;
       --max-width: 1024px;
@@ -59,11 +60,28 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-soft);
       padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section:not(.hero)::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(14, 165, 164, 0.75), rgba(6, 182, 212, 0.25));
+      opacity: 0.75;
+    }
+
+    section:nth-of-type(even):not(.hero) {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfeff 100%);
     }
 
     .hero {
+      box-shadow: var(--shadow);
       background: linear-gradient(140deg, #ffffff 0%, #f4fdfc 45%, #effafd 100%);
       text-align: center;
       overflow: hidden;
@@ -104,6 +122,19 @@
       line-height: 1.25;
       margin: 0 0 14px;
       letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 52px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
     p {
@@ -156,8 +187,28 @@
 
     ul {
       margin: 0;
-      padding-left: 1.15rem;
+      padding-left: 0;
       color: var(--muted);
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    li {
+      background: #f6fafc;
+      border: 1px solid #e4edf3;
+      border-radius: 12px;
+      padding: 10px 12px 10px 38px;
+      position: relative;
+    }
+
+    li::before {
+      content: "✓";
+      position: absolute;
+      left: 12px;
+      top: 9px;
+      color: var(--primary-dark);
+      font-weight: 700;
     }
 
     li + li {
@@ -165,6 +216,8 @@
     }
 
     .privacy-link {
+      box-shadow: 0 6px 18px rgba(14, 165, 164, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       margin-top: 22px;
       display: inline-block;
       background: linear-gradient(180deg, #ecfeff 0%, #dff7f8 100%);
@@ -174,6 +227,12 @@
       border-radius: 999px;
       font-weight: 600;
       text-decoration: none;
+    }
+
+    .privacy-link:hover,
+    .privacy-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(14, 165, 164, 0.24);
     }
 
     footer {
@@ -223,7 +282,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="info">
       <div class="container">
         <h2>Mikä on TaseOn?</h2>
         <p>
